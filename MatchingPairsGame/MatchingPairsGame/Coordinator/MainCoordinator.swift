@@ -38,4 +38,11 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(matchingPairsViewController, animated: true)
     }
     
+    func score() {
+        let viewController = getViewController(storyboardId: "ScoreViewController")
+        let scoreViewController = viewController as! ScoreViewController
+        scoreViewController.coordinator = self
+        navigationController.pushViewController(scoreViewController, animated: true)
+    }
+    
 }

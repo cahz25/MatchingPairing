@@ -47,17 +47,6 @@ class MatchingPairsViewController: BaseViewController {
 
 extension MatchingPairsViewController: MatchingPairsViewInterface {
     
-    func initTimer() {
-        timeRemaining = 0
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerRunning), userInfo: nil, repeats: true)
-    }
-    
-    func finishGame() {
-        timer.invalidate()
-        print(timeRemaining)
-        presenter?.finishGame(score: timeRemaining, nickname: nickname)
-    }
-    
     func destroyCard(cardIndex: Int) {
         UIView.transition(with: concentrationCards[cardIndex], duration: 0.3, options: .transitionCurlUp, animations: {
             self.concentrationCards[cardIndex].setTitle("", for: .normal)
@@ -79,5 +68,20 @@ extension MatchingPairsViewController: MatchingPairsViewInterface {
             self.concentrationCards[showCardIndex].backgroundColor = .gray
             self.concentrationCards[showCardIndex].setTitle(cardValue, for: .normal)
         })
+    }
+    
+    func initTimer() {
+        timeRemaining = 0
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerRunning), userInfo: nil, repeats: true)
+    }
+    
+    func finishGame() {
+        timer.invalidate()
+        print(timeRemaining)
+        presenter?.finishGame(score: timeRemaining, nickname: nickname)
+    }
+    
+    func goToScore() {
+        coordinator?.score()
     }
 }

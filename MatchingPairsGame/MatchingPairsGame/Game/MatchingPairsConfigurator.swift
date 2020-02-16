@@ -18,10 +18,12 @@ class MatchingPairsConfigurator: NSObject, Abstract {
         let presenter = MatchingPairsPresenter()
         let generateGameInteractor = GenerateGameInteractor(repository: repository)
         let analizeSelectCardInteractor = AnalizeSelectCardInteractor(presenter: presenter, repository: repository)
+        let finishGameInteractor = FinishGameInteractor(presenter: presenter, repository: repository)
         (viewController as? MatchingPairsViewController)?.presenter = presenter
         presenter.view = (viewController as? MatchingPairsViewController)
         presenter.generateGameInteractor = generateGameInteractor
         presenter.analizeSelectCardInteractor = analizeSelectCardInteractor
+        presenter.finishGameInteractor = finishGameInteractor
     }
     
 }

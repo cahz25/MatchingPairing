@@ -22,6 +22,8 @@ class AppConfigurator {
         modules[NSStringFromClass(MatchingPairsViewController.self.classForCoder())] = MatchingPairsConfigurator()
         
         modules[NSStringFromClass(HomeViewController.self.classForCoder())] = HomeConfigurator()
+        
+        modules[NSStringFromClass(ScoreViewController.self.classForCoder())] = ScoreConfigurator()
     }
     
     func inject(_ viewController: UIViewController, className: String) {

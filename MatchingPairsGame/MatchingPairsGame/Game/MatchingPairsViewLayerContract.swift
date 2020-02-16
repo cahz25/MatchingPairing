@@ -14,6 +14,7 @@ protocol MatchingPairsViewInterface: class {
     func destroyCard(cardIndex: Int)
     func initTimer()
     func finishGame()
+    func goToScore()
 }
 
 protocol MatchingPairsPresenterInterface {

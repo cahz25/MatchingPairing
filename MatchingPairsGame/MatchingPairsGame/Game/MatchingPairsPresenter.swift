@@ -14,7 +14,7 @@ class MatchingPairsPresenter {
     var view: MatchingPairsViewInterface?
     var generateGameInteractor: InteractorAsync<Int>?
     var analizeSelectCardInteractor: InteractorAsync<Int?>?
-    var FinishGameInteractor: InteractorAsync<FinishGameInteractorModel.request>?
+    var finishGameInteractor: InteractorAsync<MatchingPairsUser>?
     var numberOfPairsInGame: Int = 0
     var numberOfMatch: Int = 0
     
@@ -63,8 +63,8 @@ extension MatchingPairsPresenter: MatchingPairsPresenterInterface {
     }
     
     func finishGame(score: Int, nickname: String) {
-        let request = FinishGameInteractorModel.request(score: score, nickname: nickname)
-        FinishGameInteractor?.execute(params: request)
+        let request = MatchingPairsUser(nickname: nickname, score: score)
+        finishGameInteractor?.execute(params: request)
     }
     
 }
@@ -96,4 +96,11 @@ extension MatchingPairsPresenter: MatchingPairsInteractorToPresenterInterface {
         }
     }
     
+}
+
+extension MatchingPairsPresenter: MatchingPairsFinishInteractorToPresenterInterface{
+    
+    func goToScoreView() {
+        self.view?.goToScore()
+    }
 }

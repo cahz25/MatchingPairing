@@ -9,7 +9,14 @@
 import Foundation
 import SQLite3
 
-struct Scores {
+
+enum DBHelperError: Error {
+    case couldNotInsertRow
+    case statementCouldNotBePrepared
+    case errorOpeningDatabase
+}
+
+public struct Scores {
     var id: Int
     var nickname: String
     var score: Int
@@ -61,16 +68,8 @@ class DBHelper
     }
     
     
-    func insert(nickname: String, score: Int)
+    func insert(nickname: String, score: Int) throws
     {
-//        let scores = read()
-//        for p in scores
-//        {
-//            if p.id == id
-//            {
-//                return
-//            }
-//        }
         let insertStatementString = "INSERT INTO scores (nickname, score) VALUES (?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
@@ -81,14 +80,16 @@ class DBHelper
                 print("Successfully inserted row.")
             } else {
                 print("Could not insert row.")
+                throw DBHelperError.couldNotInsertRow
             }
         } else {
             print("INSERT statement could not be prepared.")
+            throw DBHelperError.statementCouldNotBePrepared
         }
         sqlite3_finalize(insertStatement)
     }
     
-    func read() -> [Scores] {
+    func read() throws -> [Scores] {
         let queryStatementString = "SELECT * FROM scores;"
         var queryStatement: OpaquePointer? = nil
         var psns : [Scores] = []
@@ -103,6 +104,7 @@ class DBHelper
             }
         } else {
             print("SELECT statement could not be prepared")
+            throw DBHelperError.statementCouldNotBePrepared
         }
         sqlite3_finalize(queryStatement)
         return psns

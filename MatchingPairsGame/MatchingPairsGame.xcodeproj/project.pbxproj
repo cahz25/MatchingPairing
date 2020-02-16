@@ -28,6 +28,10 @@
 		BB55E0FC238B4B5500B72E4D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55E0FB238B4B5500B72E4D /* HomePresenter.swift */; };
 		BB55E0FE238B4B6D00B72E4D /* HomeViewLayerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55E0FD238B4B6D00B72E4D /* HomeViewLayerContract.swift */; };
 		BB55E100238B50AA00B72E4D /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55E0FF238B50AA00B72E4D /* HomeConfigurator.swift */; };
+		BB99BA7823F9E054008097AD /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7723F9E054008097AD /* ScoreViewController.swift */; };
+		BB99BA7A23F9E1E2008097AD /* ScoreViewLayerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7923F9E1E2008097AD /* ScoreViewLayerContract.swift */; };
+		BB99BA7C23F9E2A6008097AD /* ScorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7B23F9E2A6008097AD /* ScorePresenter.swift */; };
+		BB99BA7E23F9E31E008097AD /* ScoreConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7D23F9E31E008097AD /* ScoreConfigurator.swift */; };
 		BBE10D6D238B2969000A259B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE10D6C238B2969000A259B /* Coordinator.swift */; };
 		BBE10D6F238B2A2E000A259B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE10D6E238B2A2E000A259B /* Storyboarded.swift */; };
 		BBE10D74238B2B9B000A259B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE10D73238B2B9B000A259B /* HomeViewController.swift */; };
@@ -83,6 +87,10 @@
 		BB55E0FB238B4B5500B72E4D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		BB55E0FD238B4B6D00B72E4D /* HomeViewLayerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLayerContract.swift; sourceTree = "<group>"; };
 		BB55E0FF238B50AA00B72E4D /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		BB99BA7723F9E054008097AD /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		BB99BA7923F9E1E2008097AD /* ScoreViewLayerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewLayerContract.swift; sourceTree = "<group>"; };
+		BB99BA7B23F9E2A6008097AD /* ScorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePresenter.swift; sourceTree = "<group>"; };
+		BB99BA7D23F9E31E008097AD /* ScoreConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreConfigurator.swift; sourceTree = "<group>"; };
 		BBE10D6C238B2969000A259B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BBE10D6E238B2A2E000A259B /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BBE10D73238B2B9B000A259B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -109,13 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		67293EB323F0AE71002F722F /* Scores */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scores;
-			sourceTree = "<group>";
-		};
 		67440FE3239C093A001BE32F /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +157,7 @@
 		678807162370A5CC0065BB21 /* MatchingPairsGame */ = {
 			isa = PBXGroup;
 			children = (
-				67293EB323F0AE71002F722F /* Scores */,
+				BB99BA7623F9E03C008097AD /* Score */,
 				67440FE3239C093A001BE32F /* Base */,
 				BBE10D6B238B2937000A259B /* Coordinator */,
 				67FEF32A2370B44400666D32 /* Game */,
@@ -191,6 +192,17 @@
 				67FEF32D2370B57700666D32 /* MatchingPairsConfigurator.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		BB99BA7623F9E03C008097AD /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				BB99BA7723F9E054008097AD /* ScoreViewController.swift */,
+				BB99BA7923F9E1E2008097AD /* ScoreViewLayerContract.swift */,
+				BB99BA7B23F9E2A6008097AD /* ScorePresenter.swift */,
+				BB99BA7D23F9E31E008097AD /* ScoreConfigurator.swift */,
+			);
+			path = Score;
 			sourceTree = "<group>";
 		};
 		BBE10D6B238B2937000A259B /* Coordinator */ = {
@@ -317,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6788073D2370A7120065BB21 /* MatchingPairsPresenter.swift in Sources */,
+				BB99BA7E23F9E31E008097AD /* ScoreConfigurator.swift in Sources */,
 				BB55E0FE238B4B6D00B72E4D /* HomeViewLayerContract.swift in Sources */,
 				678807182370A5CC0065BB21 /* AppDelegate.swift in Sources */,
 				67FEF3322370B6EA00666D32 /* MatchingPairsViewController.swift in Sources */,
@@ -327,11 +340,14 @@
 				BB55E100238B50AA00B72E4D /* HomeConfigurator.swift in Sources */,
 				6788073F2370A7420065BB21 /* MatchingPairsViewLayerContract.swift in Sources */,
 				BBE10D74238B2B9B000A259B /* HomeViewController.swift in Sources */,
+				BB99BA7A23F9E1E2008097AD /* ScoreViewLayerContract.swift in Sources */,
 				6788071A2370A5CC0065BB21 /* SceneDelegate.swift in Sources */,
 				67440FE7239C09C9001BE32F /* BaseContract.swift in Sources */,
+				BB99BA7823F9E054008097AD /* ScoreViewController.swift in Sources */,
 				BBE10D6D238B2969000A259B /* Coordinator.swift in Sources */,
 				BBE10D6F238B2A2E000A259B /* Storyboarded.swift in Sources */,
 				BB55E0FC238B4B5500B72E4D /* HomePresenter.swift in Sources */,
+				BB99BA7C23F9E2A6008097AD /* ScorePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

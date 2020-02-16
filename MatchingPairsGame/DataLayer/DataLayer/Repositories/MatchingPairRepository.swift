@@ -10,6 +10,7 @@ import Foundation
 import CoreLayer
 
 public class MatchingPairRepository: MatchingPairRepositoryProtocol {
+    
     var game = [MatchingPairsCard]()
     var selectIndex : Int?
     var db : DBHelper = DBHelper()
@@ -41,8 +42,31 @@ public class MatchingPairRepository: MatchingPairRepositoryProtocol {
         selectIndex = nil
     }
     
-    public func saveScore(score: Int, nickname: String, completion: @escaping (_ result: Bool?) -> Void) {
-        db.insert(nickname: nickname, score: score)
+    public func saveScore(user: MatchingPairsUser, completion: @escaping (Bool) -> Void) {
+        do {
+            try db.insert(nickname: user.nickname, score: user.score)
+        } catch {
+            completion(false)
+            return
+        }
+        completion(true)
+    }
+    
+    public func getScores(numberOfItems: Int, completion: @escaping (Bool, [MatchingPairsUser]?) -> Void) {
+        var scores : [Scores]?
+        var scoreInMatchingPairsUser = [MatchingPairsUser]()
+        do {
+            scores = try db.read()
+        } catch {
+            completion(false, nil)
+            return
+        }
+        
+        for score in scores! {
+            scoreInMatchingPairsUser.append(MatchingPairsUser(nickname: score.nickname, score: score.score))
+        }
+        
+        completion(true, scoreInMatchingPairsUser)
     }
     
 }

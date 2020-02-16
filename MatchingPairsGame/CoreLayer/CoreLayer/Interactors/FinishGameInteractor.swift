@@ -8,30 +8,24 @@
 
 import Foundation
 
-public struct FinishGameInteractorModel {
-    public struct request {
-        var score: Int
-        var nickname: String
-        
-        public init(score: Int, nickname: String){
-            self.score = score
-            self.nickname = nickname
-        }
-    }
+public protocol MatchingPairsFinishInteractorToPresenterInterface {
+    func goToScoreView()
 }
 
-public class FinishGameInteractor: InteractorAsync<FinishGameInteractorModel.request> {
+public class FinishGameInteractor: InteractorAsync<MatchingPairsUser> {
     
+    var presenter: MatchingPairsFinishInteractorToPresenterInterface?
     var MatchingPairsRepository: MatchingPairRepositoryProtocol?
     
-    public init(repository: MatchingPairRepositoryProtocol) {
+    public init(presenter: MatchingPairsFinishInteractorToPresenterInterface, repository: MatchingPairRepositoryProtocol) {
+        self.presenter = presenter
         self.MatchingPairsRepository = repository
     }
     
-    public override func buildUseCase(params request: FinishGameInteractorModel.request) {
-        MatchingPairsRepository?.saveScore(score: request.score, nickname: request.nickname){ result in
-            if result == nil {
-                
+    public override func buildUseCase(params request: MatchingPairsUser) {
+        MatchingPairsRepository?.saveScore(user: request){ isSuccess in
+            if isSuccess {
+                self.presenter?.goToScoreView()
             }
         }
     }

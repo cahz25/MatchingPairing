@@ -14,5 +14,6 @@ public protocol MatchingPairRepositoryProtocol {
     func getSelectCard() -> (card: MatchingPairsCard?, index: Int?)
     func setSelectCard(index: Int)
     func cleanSelectCard()
-    func saveScore(score: Int, nickname: String, completion: @escaping (_ result: Bool?) -> Void)
+    func saveScore(user: MatchingPairsUser, completion: @escaping (_ isSuccess: Bool) -> Void)
+    func getScores(numberOfItems: Int, completion: @escaping (_ isSuccess: Bool, _ scores: [MatchingPairsUser]?) -> Void)
 }

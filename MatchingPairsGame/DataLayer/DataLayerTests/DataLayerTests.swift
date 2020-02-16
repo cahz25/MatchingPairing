@@ -10,6 +10,8 @@ import XCTest
 @testable import DataLayer
 
 class DataLayerTests: XCTestCase {
+    
+    var matchingPairRepository = MatchingPairRepository()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,9 +21,15 @@ class DataLayerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testAnalizeInsert() {
+        matchingPairRepository.saveScore(score: 30, nickname: "CAHZ") { (isSuccess) in
+            if isSuccess != nil {
+                self.matchingPairRepository.getScores { (isSuccess, scores) in
+                    let count = scores.count
+                    XCTAssertEqual(30, scores[count-1].score,  "The insert is wrong")
+                }
+            }
+        }
     }
 
     func testPerformanceExample() {

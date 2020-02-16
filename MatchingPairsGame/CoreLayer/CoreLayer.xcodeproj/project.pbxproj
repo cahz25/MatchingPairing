@@ -15,6 +15,8 @@
 		67772D7023899F3D00835647 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67772D6F23899F3D00835647 /* Async.swift */; };
 		67772D782389A5CC00835647 /* MatchingPairsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67772D772389A5CC00835647 /* MatchingPairsCard.swift */; };
 		67772D7E2389AA1700835647 /* MatchingPairRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67772D7D2389AA1700835647 /* MatchingPairRepositoryProtocol.swift */; };
+		BB99BA7523F9D96A008097AD /* MatchingPairsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7423F9D96A008097AD /* MatchingPairsUser.swift */; };
+		BB99BA8023F9E498008097AD /* GetScoresInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB99BA7F23F9E498008097AD /* GetScoresInteractor.swift */; };
 		BBA07EE2238C4847000A804F /* GenerateGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA07EE1238C4847000A804F /* GenerateGameInteractor.swift */; };
 		BBA07EE4238C4909000A804F /* AnalizeSelectCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA07EE3238C4909000A804F /* AnalizeSelectCardInteractor.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		67772D6F23899F3D00835647 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		67772D772389A5CC00835647 /* MatchingPairsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsCard.swift; sourceTree = "<group>"; };
 		67772D7D2389AA1700835647 /* MatchingPairRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BB99BA7423F9D96A008097AD /* MatchingPairsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsUser.swift; sourceTree = "<group>"; };
+		BB99BA7F23F9E498008097AD /* GetScoresInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScoresInteractor.swift; sourceTree = "<group>"; };
 		BBA07EE1238C4847000A804F /* GenerateGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGameInteractor.swift; sourceTree = "<group>"; };
 		BBA07EE3238C4909000A804F /* AnalizeSelectCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalizeSelectCardInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 				BBA07EE1238C4847000A804F /* GenerateGameInteractor.swift */,
 				BBA07EE3238C4909000A804F /* AnalizeSelectCardInteractor.swift */,
 				67293EB423F0B8EC002F722F /* FinishGameInteractor.swift */,
+				BB99BA7F23F9E498008097AD /* GetScoresInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				67772D772389A5CC00835647 /* MatchingPairsCard.swift */,
+				BB99BA7423F9D96A008097AD /* MatchingPairsUser.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -252,6 +258,8 @@
 				67293EB523F0B8EC002F722F /* FinishGameInteractor.swift in Sources */,
 				67440FE0239C0055001BE32F /* Interactor.swift in Sources */,
 				67772D782389A5CC00835647 /* MatchingPairsCard.swift in Sources */,
+				BB99BA7523F9D96A008097AD /* MatchingPairsUser.swift in Sources */,
+				BB99BA8023F9E498008097AD /* GetScoresInteractor.swift in Sources */,
 				67772D7E2389AA1700835647 /* MatchingPairRepositoryProtocol.swift in Sources */,
 				BBA07EE4238C4909000A804F /* AnalizeSelectCardInteractor.swift in Sources */,
 				BBA07EE2238C4847000A804F /* GenerateGameInteractor.swift in Sources */,

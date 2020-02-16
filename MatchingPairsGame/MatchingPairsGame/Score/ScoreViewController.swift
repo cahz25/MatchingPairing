@@ -24,6 +24,9 @@ class ScoreViewController: BaseViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide BackButton
+        self.navigationItem.hidesBackButton = true
+        
         // Register the table view cell class and its reuse id
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
@@ -32,6 +35,10 @@ class ScoreViewController: BaseViewController  {
         tableView.dataSource = self
         
         presenter?.getScores()
+    }
+    
+    @IBAction func retryGame(_ sender: UIButton) {
+        coordinator?.start()
     }
 }
 

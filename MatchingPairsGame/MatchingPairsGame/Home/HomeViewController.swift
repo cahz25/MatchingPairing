@@ -17,6 +17,12 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Reset NavigationController
+        self.navigationController?.viewControllers = [self]
+        // Hide BackButton
+        self.navigationItem.hidesBackButton = true
+        
         presenter?.initHomeView()
     }
     

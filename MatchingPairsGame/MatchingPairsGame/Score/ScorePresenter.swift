@@ -13,7 +13,7 @@ class ScorePresenter: ScorePresenterInterface {
     
     var view: ScoreViewInterface?
     var getScoresInteractor: InteractorAsync<Int>?
-    let NUMBER_OF_SCORES_TO_SHOW = 20
+    let NUMBER_OF_SCORES_TO_SHOW = 10
     
     func getScores() {
         getScoresInteractor?.execute(params: NUMBER_OF_SCORES_TO_SHOW)
@@ -40,8 +40,7 @@ extension ScorePresenter: GetScoreInteractorToPresenterInterface {
     
     func showScoreList(scores: [MatchingPairsUser]?) {
         if scores != nil, scores!.count > 0 {
-            let scoreSoted = scores!.sorted(by: { $0.score < $1.score })
-            view?.drawScores(scores: mappingToView(scoreSoted))
+            view?.drawScores(scores: mappingToView(scores!))
         }
         
     }

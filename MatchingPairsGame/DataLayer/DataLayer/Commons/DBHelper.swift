@@ -89,8 +89,8 @@ class DBHelper
         sqlite3_finalize(insertStatement)
     }
     
-    func read() throws -> [Scores] {
-        let queryStatementString = "SELECT * FROM scores;"
+    func read(numberOfResults: String) throws -> [Scores] {
+        let queryStatementString = "SELECT * FROM scores ORDER BY score LIMIT \(numberOfResults);"
         var queryStatement: OpaquePointer? = nil
         var psns : [Scores] = []
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {

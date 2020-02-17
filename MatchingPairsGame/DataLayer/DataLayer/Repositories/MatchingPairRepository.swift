@@ -56,7 +56,7 @@ public class MatchingPairRepository: MatchingPairRepositoryProtocol {
         var scores : [Scores]?
         var scoreInMatchingPairsUser = [MatchingPairsUser]()
         do {
-            scores = try db.read()
+            scores = try db.read(numberOfResults: String(numberOfItems))
         } catch {
             completion(false, nil)
             return

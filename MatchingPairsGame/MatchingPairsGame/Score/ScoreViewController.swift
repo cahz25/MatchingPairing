@@ -17,7 +17,6 @@ class ScoreViewController: BaseViewController  {
     var scores = [(title: String, subtitle: String)]()
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
-    let NUMBER_OF_SCORES_TO_SHOW = 20
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +25,8 @@ class ScoreViewController: BaseViewController  {
         
         // Hide BackButton
         self.navigationItem.hidesBackButton = true
+        
+        self.title = "Score"
         
         // Register the table view cell class and its reuse id
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)

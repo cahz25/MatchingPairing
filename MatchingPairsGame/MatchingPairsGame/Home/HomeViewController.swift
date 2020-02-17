@@ -22,6 +22,8 @@ class HomeViewController: BaseViewController {
         self.navigationController?.viewControllers = [self]
         // Hide BackButton
         self.navigationItem.hidesBackButton = true
+        // Set title
+        self.title = "Matching Pair Game"
         
         presenter?.initHomeView()
     }

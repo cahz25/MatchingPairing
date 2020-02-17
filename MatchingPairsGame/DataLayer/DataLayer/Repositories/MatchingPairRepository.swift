@@ -13,9 +13,14 @@ public class MatchingPairRepository: MatchingPairRepositoryProtocol {
     
     var game = [MatchingPairsCard]()
     var selectIndex : Int?
-    var db : DBHelper = DBHelper()
     
-    public init() {}
+    private let localDataSource: MatchingPairsDataSourceProtocol
+    private let remoteDataSource: MatchingPairsDataSourceProtocol
+    
+    public init(localDataSource: MatchingPairsDataSourceProtocol, remoteDataSource: MatchingPairsDataSourceProtocol) {
+        self.localDataSource = localDataSource
+        self.remoteDataSource = remoteDataSource
+    }
     
     public func saveGame(cards: [MatchingPairsCard]) {
         game = cards
@@ -43,30 +48,27 @@ public class MatchingPairRepository: MatchingPairRepositoryProtocol {
     }
     
     public func saveScore(user: MatchingPairsUser, completion: @escaping (Bool) -> Void) {
-        do {
-            try db.insert(nickname: user.nickname, score: user.score)
-        } catch {
-            completion(false)
-            return
+        self.localDataSource.saveScore(nickname: user.nickname, score: user.score) { (isSuccess) in
+            completion(isSuccess)
         }
-        completion(true)
     }
     
     public func getScores(numberOfItems: Int, completion: @escaping (Bool, [MatchingPairsUser]?) -> Void) {
-        var scores : [Scores]?
+        
         var scoreInMatchingPairsUser = [MatchingPairsUser]()
-        do {
-            scores = try db.read(numberOfResults: String(numberOfItems))
-        } catch {
-            completion(false, nil)
-            return
+        self.localDataSource.getScores(numberOfItems: numberOfItems) { (isSuccess, scores) in
+            
+            if isSuccess, scores != nil {
+                for score in scores! {
+                    scoreInMatchingPairsUser.append(MatchingPairsUser(nickname: score.nickname, score: score.score))
+                }
+                completion(true, scoreInMatchingPairsUser)
+            } else {
+                completion(false, nil)
+            }
+            
         }
         
-        for score in scores! {
-            scoreInMatchingPairsUser.append(MatchingPairsUser(nickname: score.nickname, score: score.score))
-        }
-        
-        completion(true, scoreInMatchingPairsUser)
     }
     
 }

@@ -14,6 +14,9 @@
 		67772D6423899C1800835647 /* CoreLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67772D6323899C1800835647 /* CoreLayer.framework */; };
 		67772D6523899C1800835647 /* CoreLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67772D6323899C1800835647 /* CoreLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		67772D812389ABDD00835647 /* MatchingPairRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67772D802389ABDD00835647 /* MatchingPairRepository.swift */; };
+		BBA6E03D23FAE93800F4E88B /* MatchingPairsDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6E03C23FAE93800F4E88B /* MatchingPairsDataSourceProtocol.swift */; };
+		BBA6E03F23FAE9D700F4E88B /* MatchingPairsLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6E03E23FAE9D700F4E88B /* MatchingPairsLocalDataSource.swift */; };
+		BBA6E04123FAEC6E00F4E88B /* MatchingPairsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6E04023FAEC6E00F4E88B /* MatchingPairsRemoteDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		67772D5323899BF000835647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67772D6323899C1800835647 /* CoreLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67772D802389ABDD00835647 /* MatchingPairRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairRepository.swift; sourceTree = "<group>"; };
+		BBA6E03C23FAE93800F4E88B /* MatchingPairsDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsDataSourceProtocol.swift; sourceTree = "<group>"; };
+		BBA6E03E23FAE9D700F4E88B /* MatchingPairsLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsLocalDataSource.swift; sourceTree = "<group>"; };
+		BBA6E04023FAEC6E00F4E88B /* MatchingPairsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingPairsRemoteDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		67772D4523899BF000835647 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				BBA6E03B23FAE90C00F4E88B /* DataSources */,
 				67293EB623F0BE5C002F722F /* Commons */,
 				67772D7F2389ABB300835647 /* Repositories */,
 				67772D4623899BF000835647 /* DataLayer.h */,
@@ -133,6 +140,16 @@
 				67772D802389ABDD00835647 /* MatchingPairRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		BBA6E03B23FAE90C00F4E88B /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				BBA6E03C23FAE93800F4E88B /* MatchingPairsDataSourceProtocol.swift */,
+				BBA6E03E23FAE9D700F4E88B /* MatchingPairsLocalDataSource.swift */,
+				BBA6E04023FAEC6E00F4E88B /* MatchingPairsRemoteDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				67772D812389ABDD00835647 /* MatchingPairRepository.swift in Sources */,
+				BBA6E03F23FAE9D700F4E88B /* MatchingPairsLocalDataSource.swift in Sources */,
 				67293EB823F0BE8A002F722F /* DBHelper.swift in Sources */,
+				BBA6E03D23FAE93800F4E88B /* MatchingPairsDataSourceProtocol.swift in Sources */,
+				BBA6E04123FAEC6E00F4E88B /* MatchingPairsRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

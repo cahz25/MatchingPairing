@@ -14,7 +14,9 @@ import UIKit
 class MatchingPairsConfigurator: NSObject, Abstract {
     
     func build(viewController: UIViewController) {
-        let repository = MatchingPairRepository()
+        let localDataSource = MatchingPairsLocalDataSource()
+        let remoteDataSource = MatchingPairsRemoteDataSource()
+        let repository = MatchingPairRepository(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
         let presenter = MatchingPairsPresenter()
         let generateGameInteractor = GenerateGameInteractor(repository: repository)
         let analizeSelectCardInteractor = AnalizeSelectCardInteractor(presenter: presenter, repository: repository)

@@ -14,7 +14,9 @@ import UIKit
 class ScoreConfigurator: NSObject, Abstract {
     
     func build(viewController: UIViewController) {
-        let repository = MatchingPairRepository()
+        let localDataSource = MatchingPairsLocalDataSource()
+        let remoteDataSource = MatchingPairsRemoteDataSource()
+        let repository = MatchingPairRepository(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
         let presenter = ScorePresenter()
         let getScoresInteractor = GetScoresInteractor(presenter: presenter, repository: repository)
         (viewController as? ScoreViewController)?.presenter = presenter
